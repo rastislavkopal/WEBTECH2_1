@@ -1,0 +1,48 @@
+html,body {
+    margin: 0;
+}
+
+#table_div{
+    width: 60%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+#uploader_div{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    width: 100%;
+    z-index: 4;
+    min-height: 200px;
+    padding: 50px;
+}
+
+#uploadedFile{
+
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#indexFooter{
+    width: 100%;
+    min-height: 50px;
+    position: fixed;
+    bottom: 0;
+}
+
+.error-message {
+    position: fixed;
+    top: 20%;
+    left: 45%;
+    margin-left: -150px;
+    width: 400px;
+    z-index: 9999;
+    background-color: tomato;
+    color: white;
+}

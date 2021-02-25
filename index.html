@@ -1,0 +1,73 @@
+<!doctype  html>
+<html lang="sk">
+<head>
+    <title>DirOps</title>
+    <meta charset="utf-8">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark py-4">
+    <a class="navbar-brand mb-0 h1 ml-2" href="http://147.175.98.78/cv2/">Domov</a>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <div id="navbar_upload" class="btn-nav"><a class="btn btn-primary btn-small navbar-btn mx-3 py-2" onclick="showUploadForm()">UPLOAD</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="uploader_div">
+    <h2>Pridaj súbor</h2>
+    <form action="http://147.175.98.78/cv2/handlers/fileHandler.php" method="post" enctype="multipart/form-data" id="reg-form">
+        <div class="form-group">
+            <label for="uploadedFileName">Názov súboru</label>
+            <input type="text" class="form-control" id="uploadedFileName" name="uploadedFileName" placeholder="nazov suboru">
+            <small id="nameHelp" class="form-text text-muted">Názor súboru bez prípony.</small>
+        </div>
+
+        <div class="custom-file mb-3">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Vyberte súbor
+            </label>
+            <input id="file-upload" name='file-upload' type="file" style="display:none;">
+            <label id="file-name"></label>
+        </div>
+
+
+
+<!--        <button type="submit" class="btn btn-primary my-2" name="submit" id="addFileButton">Odoslať</button>-->
+        <button type="button" class="btn btn-primary my-2" name="submit" id="post-btn">Odoslať</button>
+
+    </form>
+</div>
+
+<div id="table_div">
+    <table id="table_id" class="display">
+        <thead>
+        <tr>
+            <th>Meno súboru</th>
+            <th>Veľkosť súboru</th>
+            <th>Dátum pridania</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<footer id="indexFooter" class="text-center text-white bg-dark py-3">
+    <div class="text-center p-3 bg-dark">
+        © 2021 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Rastislav Kopál</a>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<script src="./assets/js/myscript.js"></script>
+</body>
+</html>

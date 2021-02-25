@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7a888c3c-1c0f-4ad1-a009-e78780b01408" name="Webtech2">
+        <fileTransfer rootFolder="/home/xkopalr1" accessType="SFTP" host="147.175.98.78" port="22" sshConfigId="1ec7bd12-bce1-4b60-8136-d822f4f25e14" sshConfig="xkopalr1@147.175.98.78:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
