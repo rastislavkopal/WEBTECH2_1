@@ -1,8 +1,8 @@
 $(document).ready( function () {
     let url = "http://147.175.98.78/cv2/handlers/GetTableDataHandler.php";
     let searchParams = new URLSearchParams(window.location.search)
-    if (searchParams.has('innerdir'))
-        url += "?innerdir=" +searchParams.get('innerdir')
+    if (searchParams.has('subdir'))
+        url += "?subdir=" +searchParams.get('subdir')
 
     $.get(url,
         function (data) {
@@ -59,8 +59,8 @@ $("#post-btn").click(function(){
         fd.append('file-upload',form[0]);
         fd.append('uploadedFileName', $('input[type=file]')[0].files[0]);
         let searchParams = new URLSearchParams(window.location.search)
-        if (searchParams.has('innerdir'))
-            fd.append('uploadedFilePath', searchParams.get('innerdir'));
+        if (searchParams.has('subdir'))
+            fd.append('uploadedFilePath', searchParams.get('subdir'));
 
         $.ajax({
             url: 'http://147.175.98.78/cv2/handlers/fileHandler.php',
