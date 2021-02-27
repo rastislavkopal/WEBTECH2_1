@@ -7,14 +7,8 @@ $(document).ready( function () {
     $.get(url,
         function (data) {
             let json = JSON.parse(data);
-            console.log(json);
             $("#table_id").DataTable({
                 data: json,
-                columns: [
-                    { json: 'meno' },
-                    { json: 'velkost' },
-                    { json: 'datum' }
-                    ],
                 "searching": false,
                 "paging": false,
                 "bInfo": false,
@@ -33,23 +27,30 @@ function showUploadForm()
         $('#uploader_div').hide('slow');
     }
 }
+
 $("#file-upload").change(function(){
     $("#file-name").text(this.files[0].name);
 });
 
 $("#addFileButton").on('click', function(){
     window.location.replace("http://147.175.98.78/cv2");
-    // window.open("");
 });
 
-// $("#post-btn").click(function(){
-//     $.post("http://147.175.98.78/cv2/fileHandler.php", $("#reg-form").serialize(), function(data) {
-//         alert(data);
-//     });
-// });
+function handleUpload(response)
+{
+    if(response != 0){
+        $('#uploader_div').hide('slow');
+        var message = $('<div class="alert alert-error error-message" style="display: none;">');
+        var close = $('<button type="button" class="close" data-dismiss="alert">&times</button>');
+        message.append(close); // adding the close button to the message
+        message.append(response);
+        message.appendTo($('body')).fadeIn(300).delay(3000).fadeOut(1500);
+    }else{
+        alert('file not uploaded');
+    }
+}
 
 $("#post-btn").click(function(){
-
     var form = $('form')[0];
     var fd = new FormData(form);
 
@@ -57,11 +58,9 @@ $("#post-btn").click(function(){
     if(form.length > 0 ){
         fd.append('file-upload',form[0]);
         fd.append('uploadedFileName', $('input[type=file]')[0].files[0]);
-
         let searchParams = new URLSearchParams(window.location.search)
-        if (searchParams.has('innerdir')){
+        if (searchParams.has('innerdir'))
             fd.append('uploadedFilePath', searchParams.get('innerdir'));
-        }
 
         $.ajax({
             url: 'http://147.175.98.78/cv2/handlers/fileHandler.php',
@@ -69,18 +68,7 @@ $("#post-btn").click(function(){
             data: fd,
             contentType: false,
             processData: false,
-            success: function(response){
-                if(response != 0){
-                    $('#uploader_div').hide('slow');
-                    var message = $('<div class="alert alert-error error-message" style="display: none;">');
-                    var close = $('<button type="button" class="close" data-dismiss="alert">&times</button>');
-                    message.append(close); // adding the close button to the message
-                    message.append(response);
-                    message.appendTo($('body')).fadeIn(300).delay(3000).fadeOut(1500);
-                }else{
-                    alert('file not uploaded');
-                }
-            },
+            success: handleUpload,
         });
     }else{
         alert("Please select a file.");

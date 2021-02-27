@@ -37,9 +37,7 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], $target_file)) {
         echo "Súbor '". htmlspecialchars( $_POST['uploadedFileName'] ). '.' . $fileType . "' bol úspešne pridaný.";
     } else {
-        echo "Sorry, there was an error uploading your file with path:" . $target_file;
+        echo "Sorry, there was an error uploading your file with path:" . substr($target_file, 0, -10);
     }
 }
-//header('Location: http://147.175.98.78/cv2/index.php');
-//exit();
 ?>
